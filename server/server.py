@@ -93,12 +93,29 @@ class StatusHandler(tornado.web.RequestHandler):
         self.write(response)
         self.finish()
 
+# debug only
 class CancelHandler(tornado.web.RequestHandler):
     @tornado.web.asynchronous
     def get(self):
-        """Getting status
+        """Cancel curent order (debug only)
         """
         DEMO_USER["status"] = 0
+        response = {
+            'status': DEMO_USER.get("status",0)
+            }
+        self.write(response)
+        self.finish()
+
+class AnswerHandler(tornado.web.RequestHandler):
+    @tornado.web.asynchronous
+    def post(self):
+        """Got answer from Ayi
+        """
+        #position = self.get_argument('position')
+
+        print "body='%s'"%(self.request.body)
+
+        DEMO_USER["status"] = 2
         response = {
             'status': DEMO_USER.get("status",0)
             }
@@ -122,6 +139,7 @@ application = tornado.web.Application(
         (r'/api/find', FindHandler),
         (r'/api/status', StatusHandler),
         (r'/api/cancel', CancelHandler),
+        (r'/api/answer', AnswerHandler),
         (r'/', PageHandler)
     ],
 #    db=db
