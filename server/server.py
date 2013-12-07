@@ -67,6 +67,7 @@ class StatusHandler(tornado.web.RequestHandler):
             'status': DEMO_USER.get("status",0)
             }
         self.write(response)
+        self.finish()
 
 class PageHandler(tornado.web.RequestHandler):
     @tornado.web.asynchronous
