@@ -34,8 +34,8 @@ SMS={
 class FindHandler(tornado.web.RequestHandler):
     def sms(self, to):
         content="test"
-        body="To=%s\nFrom=%s\nBody=%s"%(to,SMS['from'],content)
-        print "budy='%s'"%body
+        body="To=%s&From=%s&Body=%s"%(to,SMS['from'],content)
+        print "body='%s'"%body
 
         request = httpclient.HTTPRequest(url=SMS['url'],
                                          method='POST',
