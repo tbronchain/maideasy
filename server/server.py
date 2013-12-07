@@ -22,7 +22,21 @@ DEMO_AYI=[
         }
     ]
 
+SMS={
+    "url": "https://api.twilio.com/2010-04-01/Accounts/AC722b329f84edafadeafc17fe613ada80/SMS/Messages.json",
+    "user": "AC722b329f84edafadeafc17fe613ada80"
+    "pass": "8b9d56af64c029abfeccf1af0f23bd9c"
+    }
+
 class FindHandler(tornado.web.RequestHandler):
+    def sms(self):
+        pass
+
+#        request = tornado.httpclient.HTTPRequest(url=url,
+#                                                 method='POST',
+#                                                 body=body,
+#                                                 validate_cert=False)
+
     @tornado.web.asynchronous
     def post(self):
         """Finding an Ayi
@@ -44,11 +58,11 @@ class FindHandler(tornado.web.RequestHandler):
 
 class StatusHandler(tornado.web.RequestHandler):
     @tornado.web.asynchronous
-    def post(self):
+    def get(self):
+#    def post(self):
         """Getting status
         """
-        id = self.get_argument('id')
-
+        #id = self.get_argument('id')
         response = {
             'status': DEMO_USER.get("status",0)
             }
