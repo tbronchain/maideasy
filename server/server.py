@@ -112,13 +112,16 @@ class AnswerHandler(tornado.web.RequestHandler):
     def post(self):
         """Got answer from Ayi
         """
-        #position = self.get_argument('position')
-
         print "body='%s'"%(self.request.body)
-
-        DEMO_USER["status"] = 2
+        try:
+            answer = int(self.get_argument('Body'))
+        except:
+            print "error parsing answer"
+            answer = 1
+        
+        DEMO_USER["status"] = (2 if answer == 1 else 3)
         response = {
-            'status': DEMO_USER.get("status",0)
+            'status': DEMO_USER.get("status",2)
             }
         self.write(response)
         self.finish()
