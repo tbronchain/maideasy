@@ -8,13 +8,13 @@ HTML_LOCATION="./html"
 DEMO_USER={
     "phone": "",
     "address": "",
-    "status":0
+    "status": 0,
     }
 
 DEMO_AYI={
     "0": {
         "name": "ayi1",
-        "phone": "+8618612691412",
+        "phone": "+15612576060",
         "area": "haidian"
         },
     "1": {
@@ -26,9 +26,9 @@ DEMO_AYI={
 
 SMS={
     "url": "https://api.twilio.com/2010-04-01/Accounts/AC722b329f84edafadeafc17fe613ada80/SMS/Messages.json",
-    "user": "AC722b329f84edafadeafc17fe613ada80",
-    "pass": "8b9d56af64c029abfeccf1af0f23bd9c",
-    'from': '+18625792347',
+    "user": "AC46a06d1e1dfbfb6883d7ab83a428d8bd",
+    "pass": "ab9841276591d840e4e089858e981bd8",
+    'from': '+18565170283',
     }
 
 class FindHandler(tornado.web.RequestHandler):
@@ -50,18 +50,17 @@ class FindHandler(tornado.web.RequestHandler):
             print "Error:", e
         http_client.close()
 
-    @tornado.web.asynchronous
-    def post(self):
-        """Finding an Ayi
-        """
-        position = self.get_argument('position')
-        
-        response = {
-            'status': "OK"
-            }
-        DEMO_USER["status"] = 1
-        self.write(response)
-
+#    @tornado.web.asynchronous
+#    def post(self):
+#        """Finding an Ayi
+#        """
+#        position = self.get_argument('position')
+#        
+#        response = {
+#            'status': "OK"
+#            }
+#        DEMO_USER["status"] = 1
+#        self.write(response)
 
     @tornado.web.asynchronous
     def get(self):
@@ -88,6 +87,18 @@ class StatusHandler(tornado.web.RequestHandler):
         """Getting status
         """
         #id = self.get_argument('id')
+        response = {
+            'status': DEMO_USER.get("status",0)
+            }
+        self.write(response)
+        self.finish()
+
+class CancelHandler(tornado.web.RequestHandler):
+    @tornado.web.asynchronous
+    def get(self):
+        """Getting status
+        """
+        DEMO_USER["status"] = 0
         response = {
             'status': DEMO_USER.get("status",0)
             }
