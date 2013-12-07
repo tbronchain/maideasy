@@ -58,8 +58,8 @@ class FindHandler(tornado.web.RequestHandler):
 
 class StatusHandler(tornado.web.RequestHandler):
     @tornado.web.asynchronous
-    def get(self):
 #    def post(self):
+    def get(self):
         """Getting status
         """
         #id = self.get_argument('id')
