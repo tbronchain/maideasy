@@ -121,6 +121,7 @@ application = tornado.web.Application(
     [
         (r'/api/find', FindHandler),
         (r'/api/status', StatusHandler),
+        (r'/api/cancel', CancelHandler),
         (r'/', PageHandler)
     ],
 #    db=db
