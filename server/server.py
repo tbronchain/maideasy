@@ -9,33 +9,36 @@ DEMO_USER={
     "status":0
     }
 
-DEMO_AYI=[
-    {
-        "name": "",
-        "phone": "",
-        "area": ""
+DEMO_AYI={
+    "0": {
+        "name": "ayi1",
+        "phone": "+8618612691412",
+        "area": "haidian"
         },
-    {
+    "1": {
         "name": "",
         "phone": "",
         "area": ""
         }
-    ]
+    }
 
 SMS={
     "url": "https://api.twilio.com/2010-04-01/Accounts/AC722b329f84edafadeafc17fe613ada80/SMS/Messages.json",
     "user": "AC722b329f84edafadeafc17fe613ada80",
     "pass": "8b9d56af64c029abfeccf1af0f23bd9c",
+    'from': '+18625792347',
     }
 
 class FindHandler(tornado.web.RequestHandler):
-    def sms(self):
-        pass
-
-#        request = tornado.httpclient.HTTPRequest(url=url,
-#                                                 method='POST',
-#                                                 body=body,
-#                                                 validate_cert=False)
+    def sms(self, to):
+        content="test"
+        body="To=%s\nFrom=%s\nBody=%s"%(to,SMS['from'],content)
+        request = tornado.httpclient.HTTPRequest(url=SMS['url'],
+                                                 method='POST',
+                                                 body=body,
+                                                 validate_cert=False,
+                                                 auth_username=SMS['user'],
+                                                 auth_password=SMS['pass'])
 
     @tornado.web.asynchronous
     def post(self):
@@ -43,12 +46,24 @@ class FindHandler(tornado.web.RequestHandler):
         """
         position = self.get_argument('position')
         
-
         response = {
             'status': "OK"
             }
         DEMO_USER["status"] = 1
         self.write(response)
+
+
+    @tornado.web.asynchronous
+    def get(self):
+        """Finding an Ayi - get debug
+        """
+        self.sms("+18612691412")
+        DEMO_USER["status"] = 1
+        response = {
+            'status': DEMO_USER["status"]
+            }
+        self.write(response)
+        self.finish()
 
 #    def _on_response(self, result, error):
 #        if error:
