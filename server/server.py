@@ -35,13 +35,20 @@ class FindHandler(tornado.web.RequestHandler):
     def sms(self, to):
         content="test"
         body="To=%s\nFrom=%s\nBody=%s"%(to,SMS['from'],content)
-        request = tornado.httpclient.HTTPRequest(url=SMS['url'],
-                                                 method='POST',
-                                                 body=body,
-                                                 validate_cert=False,
-                                                 auth_username=SMS['user'],
-                                                 auth_password=SMS['pass'])
-        print "%s"%request.body
+
+        request = httpclient.HTTPRequest(url=SMS['url'],
+                                         method='POST',
+                                         body=body,
+                                         validate_cert=False,
+                                         auth_username=SMS['user'],
+                                         auth_password=SMS['pass'])
+        http_client = httpclient.HTTPClient()
+        try:
+            response = http_client.fetch(request)
+            print response.body
+        except httpclient.HTTPError as e:
+            print "Error:", e
+        http_client.close()
 
     @tornado.web.asynchronous
     def post(self):
