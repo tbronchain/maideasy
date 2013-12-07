@@ -14,7 +14,7 @@ DEMO_USER={
 DEMO_AYI={
     "0": {
         "name": "ayi1",
-        "phone": "%2B15612576060",
+        "phone": '%2B15612576060',
         "area": "haidian"
         },
     "1": {
@@ -35,6 +35,7 @@ class FindHandler(tornado.web.RequestHandler):
     def sms(self, to):
         content="test"
         body="To=%s\nFrom=%s\nBody=%s"%(to,SMS['from'],content)
+        print "budy='%s'"%body
 
         request = httpclient.HTTPRequest(url=SMS['url'],
                                          method='POST',
