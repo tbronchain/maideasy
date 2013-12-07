@@ -14,7 +14,7 @@ DEMO_USER={
 DEMO_AYI={
     "0": {
         "name": "ayi1",
-        "phone": "+15612576060",
+        "phone": "%2B15612576060",
         "area": "haidian"
         },
     "1": {
@@ -28,7 +28,7 @@ SMS={
     "url": "https://api.twilio.com/2010-04-01/Accounts/AC722b329f84edafadeafc17fe613ada80/SMS/Messages.json",
     "user": "AC46a06d1e1dfbfb6883d7ab83a428d8bd",
     "pass": "ab9841276591d840e4e089858e981bd8",
-    'from': '+18565170283',
+    'from': '%2B18565170283',
     }
 
 class FindHandler(tornado.web.RequestHandler):
