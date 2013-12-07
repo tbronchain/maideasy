@@ -24,8 +24,8 @@ DEMO_AYI=[
 
 SMS={
     "url": "https://api.twilio.com/2010-04-01/Accounts/AC722b329f84edafadeafc17fe613ada80/SMS/Messages.json",
-    "user": "AC722b329f84edafadeafc17fe613ada80"
-    "pass": "8b9d56af64c029abfeccf1af0f23bd9c"
+    "user": "AC722b329f84edafadeafc17fe613ada80",
+    "pass": "8b9d56af64c029abfeccf1af0f23bd9c",
     }
 
 class FindHandler(tornado.web.RequestHandler):
