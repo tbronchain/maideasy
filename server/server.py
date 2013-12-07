@@ -41,6 +41,7 @@ class FindHandler(tornado.web.RequestHandler):
                                                  validate_cert=False,
                                                  auth_username=SMS['user'],
                                                  auth_password=SMS['pass'])
+        print "%s"%request
 
     @tornado.web.asynchronous
     def post(self):
