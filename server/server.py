@@ -25,7 +25,7 @@ DEMO_AYI={
     }
 
 SMS={
-    "url": "https://api.twilio.com/2010-04-01/Accounts/AC722b329f84edafadeafc17fe613ada80/SMS/Messages.json",
+    "url": "https://api.twilio.com/2010-04-01/Accounts/AC46a06d1e1dfbfb6883d7ab83a428d8bd/SMS/Messages.json",
     "user": "AC46a06d1e1dfbfb6883d7ab83a428d8bd",
     "pass": "ab9841276591d840e4e089858e981bd8",
     'from': '%2B18565170283',
