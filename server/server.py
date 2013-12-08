@@ -154,12 +154,12 @@ application = tornado.web.Application(
         (r'/api/answer', AnswerHandler),
         (r'/', PageHandler)
     ],
-#    settings = {
-#        "template_path":settings.TEMPLATE_PATH,
-#        "static_path":settings.STATIC_PATH,
-#        "debug":settings.DEBUG
-#        },
-#    db=db
+    settings = {
+        "template_path":settings.TEMPLATE_PATH,
+        "static_path":settings.STATIC_PATH,
+        "debug":settings.DEBUG
+        },
+    db=db
 )
 
 if __name__ == "__main__":
