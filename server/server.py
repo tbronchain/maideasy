@@ -138,7 +138,7 @@ class PageHandler(tornado.web.RequestHandler):
     def get(self):
         """Display Homepage
         """
-        self.render('index.html', data=None)#, data = Data())
+        self.render('index.html', data = Data())
 #        with open("%s/index.html"%(HTML_LOCATION), 'r') as content_file:
 #            content = content_file.read()
 #        self.write(content)
