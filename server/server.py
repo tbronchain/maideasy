@@ -159,7 +159,7 @@ application = tornado.web.Application(
         "static_path":settings.STATIC_PATH,
         "debug":settings.DEBUG
         },
-    db=db
+#    db=db
 )
 
 if __name__ == "__main__":
