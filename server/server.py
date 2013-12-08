@@ -138,10 +138,10 @@ class PageHandler(tornado.web.RequestHandler):
     def get(self):
         """Display Homepage
         """
-        self.render('index.html', data = Data())
-#        with open("%s/index.html"%(HTML_LOCATION), 'r') as content_file:
-#            content = content_file.read()
-#        self.write(content)
+#        self.render('index.html', data = Data())
+        with open("%s/index.html"%(HTML_LOCATION), 'r') as content_file:
+            content = content_file.read()
+        self.write(content)
         self.finish()
 
 #db = motor.MotorClient().open_sync().maideasy
@@ -154,11 +154,11 @@ application = tornado.web.Application(
         (r'/api/answer', AnswerHandler),
         (r'/', PageHandler)
     ],
-    settings = {
-        "template_path":settings.TEMPLATE_PATH,
-        "static_path":settings.STATIC_PATH,
-        "debug":settings.DEBUG
-        },
+#    settings = {
+#        "template_path":settings.TEMPLATE_PATH,
+#        "static_path":settings.STATIC_PATH,
+#        "debug":settings.DEBUG
+#        },
 #    db=db
 )
 
