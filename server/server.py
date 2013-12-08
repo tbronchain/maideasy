@@ -4,7 +4,7 @@ from tornado import httpclient
 import tornado.web, tornado.ioloop
 import motor
 
-HTML_LOCATION="./html"
+HTML_LOCATION="."
 RES_LOCATION="./resource"
 
 DEMO_USER={
