@@ -154,7 +154,7 @@ application = tornado.web.Application(
         (r'/api/answer', AnswerHandler),
         (r'/', PageHandler),
         (r'/favicon.ico', tornado.web.StaticFileHandler, {'path': './favicon.ico'}),
-        (r'/static/(.*)', tornado.web.StaticFileHandler, {'path': static_path}),
+#        (r'/static/(.*)', tornado.web.StaticFileHandler, {'path': static_path}),
     ],
     template_path=settings.TEMPLATE_PATH,
     static_path=settings.STATIC_PATH,
