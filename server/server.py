@@ -33,7 +33,11 @@ SMS={
 
 class FindHandler(tornado.web.RequestHandler):
     def sms(self, to):
-        content="test"
+        try:
+            with open("%s/text_ayi.txt"%(HTML_LOCATION), 'r') as content_file:
+                content = content_file.read()
+        except:
+            content="Beijing, Shuangjing, Fulichen, Buildinf A2, Apt 3456 - Today at 4:00PM - Thank you!"
         body="To=%s&From=%s&Body=%s"%(to,SMS['from'],content)
         print "body='%s'"%body
 
