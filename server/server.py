@@ -1,9 +1,11 @@
+import settings
 import tornado
 from tornado import httpclient
 import tornado.web, tornado.ioloop
 import motor
 
 HTML_LOCATION="./html"
+RES_LOCATION="./resource"
 
 DEMO_USER={
     "phone": "",
@@ -31,10 +33,11 @@ SMS={
     'from': '%2B18565170283',
     }
 
+
 class FindHandler(tornado.web.RequestHandler):
     def sms(self, to):
         try:
-            with open("%s/text_ayi.txt"%(HTML_LOCATION), 'r') as content_file:
+            with open("%s/text_ayi.txt"%(RES_LOCATION), 'r') as content_file:
                 content = content_file.read()
         except:
             content="Beijing, Shuangjing, Fulichen, Buildinf A2, Apt 3456 - Today at 4:00PM - Thank you!"
@@ -135,9 +138,10 @@ class PageHandler(tornado.web.RequestHandler):
     def get(self):
         """Display Homepage
         """
-        with open("%s/index.html"%(HTML_LOCATION), 'r') as content_file:
-            content = content_file.read()
-        self.write(content)
+        self.render('index.html', data=None)#, data = Data())
+#        with open("%s/index.html"%(HTML_LOCATION), 'r') as content_file:
+#            content = content_file.read()
+#        self.write(content)
         self.finish()
 
 #db = motor.MotorClient().open_sync().maideasy
@@ -150,6 +154,11 @@ application = tornado.web.Application(
         (r'/api/answer', AnswerHandler),
         (r'/', PageHandler)
     ],
+    settings = {
+        "template_path":settings.TEMPLATE_PATH,
+        "static_path":settings.STATIC_PATH,
+        "debug":settings.DEBUG
+        },
 #    db=db
 )
 
