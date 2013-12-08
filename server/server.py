@@ -74,7 +74,7 @@ class FindHandler(tornado.web.RequestHandler):
     def get(self):
         """Finding an Ayi - get debug
         """
-        self.sms(DEMO_AYI["1"]["phone"])
+        self.sms(DEMO_AYI["0"]["phone"])
         DEMO_USER["status"] = 1
         response = {
             'status': DEMO_USER["status"]
