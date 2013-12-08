@@ -90,7 +90,7 @@
      <ul class="slides">
 	     <!-- Slide 1 -->
          <li>
-         <img src="static/img/apt3.jpg" alt=""/>
+         <img src="static/img/slider/apt3.jpg" alt=""/>
          <div class="flex-caption"> 
              <!--<h3>Foreigners in Beijing<br>Go where you want, easily!</h3>-->
 
