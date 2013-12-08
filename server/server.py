@@ -15,12 +15,12 @@ DEMO_AYI={
     "0": {
         "name": "ayi1",
         "phone": '%2B15612576060',
-        "area": "haidian"
+        "area": "Haidian"
         },
     "1": {
-        "name": "",
-        "phone": "",
-        "area": ""
+        "name": "ayi2",
+        "phone": "%2B14158571101",
+        "area": "Sanlitun"
         }
     }
 
@@ -71,7 +71,7 @@ class FindHandler(tornado.web.RequestHandler):
     def get(self):
         """Finding an Ayi - get debug
         """
-        self.sms(DEMO_AYI["0"]["phone"])
+        self.sms(DEMO_AYI["1"]["phone"])
         DEMO_USER["status"] = 1
         response = {
             'status': DEMO_USER["status"]
