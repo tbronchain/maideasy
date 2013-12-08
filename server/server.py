@@ -33,6 +33,8 @@ SMS={
     'from': '%2B18565170283',
     }
 
+import os
+root = os.path.dirname(__file__)
 
 class FindHandler(tornado.web.RequestHandler):
     def sms(self, to):
