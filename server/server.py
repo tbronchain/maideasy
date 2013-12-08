@@ -157,7 +157,7 @@ application = tornado.web.Application(
 #        (r'/static/(.*)', tornado.web.StaticFileHandler, {'path': static_path}),
     ],
     template_path=settings.TEMPLATE_PATH,
-    static_path=settings.STATIC_PATH,
+    static_path=root,
     debug=settings.DEBUG,
 #    db=db
 )
