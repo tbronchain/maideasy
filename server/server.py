@@ -2,7 +2,7 @@ import settings
 import tornado
 from tornado import httpclient
 import tornado.web, tornado.ioloop
-import motor
+#import motor
 
 HTML_LOCATION="."
 RES_LOCATION="./resource"
@@ -166,5 +166,5 @@ application = tornado.web.Application(
 
 if __name__ == "__main__":
     print 'Starting ...'
-    application.listen(80)
+    application.listen(6000)
     tornado.ioloop.IOLoop.instance().start()
